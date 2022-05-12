@@ -1,0 +1,6 @@
+data1 = input("Enter words\n")
+data1_set = set(data1.split(' '))
+data2_set = input("Enter words one more\n")
+data2_set = set(data2_set.split(' '))
+intersection_data = data1_set.intersection(data2_set)
+print(" ".join(intersection_data))
