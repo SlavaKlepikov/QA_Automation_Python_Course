@@ -3,7 +3,7 @@ def read_file(file_path):
         with open(file_path) as file:
             return file.read()
     except FileNotFoundError as e:
-        print(f"File example.txt not found.")
+        print(f"File {file_path} not found.")
         exit()
 
 
