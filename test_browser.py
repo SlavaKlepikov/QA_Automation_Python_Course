@@ -27,6 +27,8 @@ def test_sign_in_chrome():
         assert title_web_page_login == title_web_page_login_expected, \
             f"\nWrong title\nActual:{title_web_page_login}\nExpected:{title_web_page_login_expected}"
     except:
+        raise
+    finally:
         driver.quit()
 
 
@@ -49,6 +51,8 @@ def test_sign_in_firefox():
         assert title_web_page_login == title_web_page_login_expected, \
             f"\nWrong title\nActual:{title_web_page_login}\nExpected:{title_web_page_login_expected}"
     except:
+        raise
+    finally:
         driver.quit()
 
 
@@ -71,23 +75,22 @@ def test_sign_in_chromium():
         assert title_web_page_login == title_web_page_login_expected, \
             f"\nWrong title\nActual:{title_web_page_login}\nExpected:{title_web_page_login_expected}"
     except:
+        raise
+    finally:
         driver.quit()
 
 
 def test_sign_in(create_driver):
-    try:
-        login_input_id = "form3-username"
-        login_input_element = create_driver.find_element(By.ID, login_input_id)
-        login_input_element.send_keys(ReadConfig.get_user_login())
-        password_input_id = "form3-password"
-        password_input_element = create_driver.find_element(By.ID, password_input_id)
-        password_input_element.send_keys(ReadConfig.get_user_password())
-        sign_in_btn_locator = "//div[@class ='one-factor']/button[@class ='submit button']"
-        sign_in_btn_element = create_driver.find_element(By.XPATH, sign_in_btn_locator)
-        sign_in_btn_element.click()
-        title_web_page_login = create_driver.title
-        title_web_page_login_expected = "lichess.org • Бесплатные шахматы онлайн"
-        assert title_web_page_login == title_web_page_login_expected, \
-            f"\nWrong title\nActual:{title_web_page_login}\nExpected:{title_web_page_login_expected}"
-    except:
-        create_driver.quit()
+    login_input_id = "form3-username"
+    login_input_element = create_driver.find_element(By.ID, login_input_id)
+    login_input_element.send_keys(ReadConfig.get_user_login())
+    password_input_id = "form3-password"
+    password_input_element = create_driver.find_element(By.ID, password_input_id)
+    password_input_element.send_keys(ReadConfig.get_user_password())
+    sign_in_btn_locator = "//div[@class ='one-factor']/button[@class ='submit button']"
+    sign_in_btn_element = create_driver.find_element(By.XPATH, sign_in_btn_locator)
+    sign_in_btn_element.click()
+    title_web_page_login = create_driver.title
+    title_web_page_login_expected = "lichess.org • Бесплатные шахматы онлайн"
+    assert title_web_page_login == title_web_page_login_expected, \
+        f"\nWrong title\nActual:{title_web_page_login}\nExpected:{title_web_page_login_expected}"
