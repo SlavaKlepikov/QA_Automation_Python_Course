@@ -67,7 +67,7 @@ def test_sign_in_chromium():
         sign_in_btn_element = driver.find_element(By.XPATH, sign_in_btn_locator)
         sign_in_btn_element.click()
         title_web_page_login = driver.title
-        title_web_page_login_expected = "lichess.org • Бесплатные шахматы онлайн1"
+        title_web_page_login_expected = "lichess.org • Бесплатные шахматы онлайн"
         assert title_web_page_login == title_web_page_login_expected, \
             f"\nWrong title\nActual:{title_web_page_login}\nExpected:{title_web_page_login_expected}"
     except:
