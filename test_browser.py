@@ -11,7 +11,7 @@ from utils.read_run_settings import ReadConfig
 def test_sign_in_chrome():
     try:
         driver = DriverFactory.create_driver(driver_id=1, is_headless=False)
-        driver.get("https://lichess.org/login")
+        driver.get(ReadConfig.get_application_login_url())
         driver.maximize_window()
         login_input_id = "form3-username"
         login_input_element = driver.find_element(By.ID, login_input_id)
@@ -33,7 +33,7 @@ def test_sign_in_chrome():
 def test_sign_in_firefox():
     try:
         driver = DriverFactory.create_driver(driver_id=2, is_headless=False)
-        driver.get("https://lichess.org/login")
+        driver.get(ReadConfig.get_application_login_url())
         driver.maximize_window()
         login_input_id = "form3-username"
         login_input_element = driver.find_element(By.ID, login_input_id)
@@ -55,7 +55,7 @@ def test_sign_in_firefox():
 def test_sign_in_chromium():
     try:
         driver = DriverFactory.create_driver(driver_id=3, is_headless=False)
-        driver.get("https://lichess.org/login")
+        driver.get(ReadConfig.get_application_login_url())
         driver.maximize_window()
         login_input_id = "form3-username"
         login_input_element = driver.find_element(By.ID, login_input_id)
