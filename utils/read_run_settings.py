@@ -20,3 +20,12 @@ class ReadConfig:
     @staticmethod
     def get_headless_mod():
         return config.get('browser', 'is_headless')
+
+    @staticmethod
+    def get_user_login():
+        return config.get('app_info', 'user_login')
+
+    @staticmethod
+    def get_user_password():
+        return config.get('app_info', 'user_password')
+

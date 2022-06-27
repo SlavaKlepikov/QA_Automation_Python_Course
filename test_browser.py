@@ -6,12 +6,7 @@ push your HW to the git repository and add a link to it.
 """
 from selenium.webdriver.common.by import By
 from utils.driver_factory import DriverFactory
-
-web_page_login = "https://lichess.org/login"
-user_login = "Slava097"
-user_password = "SlavaKchess097"
-full_path_geckodriver = "/home/slava/itHillel/QA_Automation_Python_Course/geckodriver"
-
+from utils.read_run_settings import ReadConfig
 
 def test_sign_in_chrome():
     try:
@@ -20,10 +15,10 @@ def test_sign_in_chrome():
         driver.maximize_window()
         login_input_id = "form3-username"
         login_input_element = driver.find_element(By.ID, login_input_id)
-        login_input_element.send_keys(user_login)
+        login_input_element.send_keys(ReadConfig.get_user_login())
         password_input_id = "form3-password"
         password_input_element = driver.find_element(By.ID, password_input_id)
-        password_input_element.send_keys(user_password)
+        password_input_element.send_keys(ReadConfig.get_user_password())
         sign_in_btn_locator = "//div[@class ='one-factor']/button[@class ='submit button']"
         sign_in_btn_element = driver.find_element(By.XPATH, sign_in_btn_locator)
         sign_in_btn_element.click()
@@ -42,10 +37,10 @@ def test_sign_in_firefox():
         driver.maximize_window()
         login_input_id = "form3-username"
         login_input_element = driver.find_element(By.ID, login_input_id)
-        login_input_element.send_keys(user_login)
+        login_input_element.send_keys(ReadConfig.get_user_login())
         password_input_id = "form3-password"
         password_input_element = driver.find_element(By.ID, password_input_id)
-        password_input_element.send_keys(user_password)
+        password_input_element.send_keys(ReadConfig.get_user_password())
         sign_in_btn_locator = "//div[@class ='one-factor']/button[@class ='submit button']"
         sign_in_btn_element = driver.find_element(By.XPATH, sign_in_btn_locator)
         sign_in_btn_element.click()
@@ -64,10 +59,10 @@ def test_sign_in_chromium():
         driver.maximize_window()
         login_input_id = "form3-username"
         login_input_element = driver.find_element(By.ID, login_input_id)
-        login_input_element.send_keys(user_login)
+        login_input_element.send_keys(ReadConfig.get_user_login())
         password_input_id = "form3-password"
         password_input_element = driver.find_element(By.ID, password_input_id)
-        password_input_element.send_keys(user_password)
+        password_input_element.send_keys(ReadConfig.get_user_password())
         sign_in_btn_locator = "//div[@class ='one-factor']/button[@class ='submit button']"
         sign_in_btn_element = driver.find_element(By.XPATH, sign_in_btn_locator)
         sign_in_btn_element.click()
@@ -83,10 +78,10 @@ def test_sign_in(create_driver):
     try:
         login_input_id = "form3-username"
         login_input_element = create_driver.find_element(By.ID, login_input_id)
-        login_input_element.send_keys(user_login)
+        login_input_element.send_keys(ReadConfig.get_user_login())
         password_input_id = "form3-password"
         password_input_element = create_driver.find_element(By.ID, password_input_id)
-        password_input_element.send_keys(user_password)
+        password_input_element.send_keys(ReadConfig.get_user_password())
         sign_in_btn_locator = "//div[@class ='one-factor']/button[@class ='submit button']"
         sign_in_btn_element = create_driver.find_element(By.XPATH, sign_in_btn_locator)
         sign_in_btn_element.click()
