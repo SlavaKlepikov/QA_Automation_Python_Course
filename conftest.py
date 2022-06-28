@@ -18,5 +18,5 @@ def create_driver2():
         driver = DriverFactory.create_driver(driver_id=driver_id, is_headless=is_headless)
         driver.get(ReadConfig.get_application_login_url())
         driver.maximize_window()
-        return drivera
+        return driver
     return get_driver
