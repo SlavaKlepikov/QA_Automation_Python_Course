@@ -12,3 +12,11 @@ def create_driver():
     yield driver
     driver.quit()
 
+@pytest.fixture()
+def create_driver2():
+    def get_driver(driver_id, is_headless):
+        driver = DriverFactory.create_driver(driver_id=driver_id, is_headless=is_headless)
+        driver.get(ReadConfig.get_application_login_url())
+        driver.maximize_window()
+        return drivera
+    return get_driver
