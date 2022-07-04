@@ -3,8 +3,6 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.core.utils import ChromeType
-import os
-os.environ['GH_TOKEN'] = "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"
 
 
 class DriverFactory:

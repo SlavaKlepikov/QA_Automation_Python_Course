@@ -26,6 +26,10 @@ class ReadConfig:
         return config.get('app_info', 'user_login')
 
     @staticmethod
+    def get_base_url():
+        return config.get('app_info', 'base_url')
+
+    @staticmethod
     def get_user_password():
         return config.get('app_info', 'user_password')
 
